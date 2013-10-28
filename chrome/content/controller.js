@@ -39,6 +39,9 @@ if(!douban_radio){
 	}
 	
 	function initMyChannel(){
+		//steven disable xiaoming channel
+		//diable my red channel use[ offical red channel to save cache space& there is another option to open this channel. 红心歌单
+		/*
 		channelRepository['red'] = []
 		var tmpData = JSON.parse(getPref('mylist',"{}"));
 		for each(var song in tmpData){
@@ -48,8 +51,10 @@ if(!douban_radio){
 		DBRUtil.getAPostContent(DBRUtil.PAGE_MXLIST,function(channels){
 			if(!channels)return;
 			xmChannels = channels
+			
 			initXMChannel()
 		})
+		*/
 	}
 	
 	function initXMChannel(){
@@ -277,11 +282,12 @@ if(!douban_radio){
 		ce('menu', p, {id:'dbr_m_channel'}, {command: douban_radio.changeChannel})
 		ce('menupopup', 'dbr_m_channel', {id:'drb_menupopup_channel'})
 		initChannelMenu('drb_menupopup_channel')
-		ce('menu', p, {id:'dbr_m_channel2'}, {command: douban_radio.changeChannel})
-		ce('menupopup', 'dbr_m_channel2', {id:'drb_menupopup_channel2'})
+		//Steve disable xiaoming channel
+		//ce('menu', p, {id:'dbr_m_channel2'}, {command: douban_radio.changeChannel})
+		//ce('menupopup', 'dbr_m_channel2', {id:'drb_menupopup_channel2'})
 
 		
-        ce('menuitem', p, {id: 'dbr_mi_favc',mcid:'red'}, {command: setFavChannel})
+       // ce('menuitem', p, {id: 'dbr_mi_favc',mcid:'red'}, {command: setFavChannel})
 		ce('menu', p, {id:'dbr_m_share'});
 		var mp_share = ce('menupopup', 'dbr_m_share');
         ce('menuitem', mp_share, {id:'dbr_mi_sinaweibo',site:'sina'},{command:openShareUIByMenu})       
@@ -451,7 +457,8 @@ if(!douban_radio){
 				$('dbr_mi_replay').setAttribute('label', radio.getSongName() == "" ? "重播歌曲" : "重播 : " + radio.getSongName());
 				$('dbr_mi_mp3path').setAttribute('tooltiptext', getPref('mp3path'));
 				$('dbr_mi_mp3path').setAttribute('disabled', getPref('mp3path') == "");
-				$('dbr_mi_favc').setAttribute('disabled', !(channelRepository['red'] && channelRepository['red'].length>=30));
+				//Steve 
+			//	$('dbr_mi_favc').setAttribute('disabled', !(channelRepository['red'] && channelRepository['red'].length>=30));
 				$('dbr_mi_changenotify').setAttribute('checked', getPref('autoshowinfo'));
 				$('dbr_mi_showlyric').setAttribute('checked', getPref('synclyric'))
 				$('dbr_mi_addressbar').setAttribute('label', getPref('showinurlbar')?"显示在状态栏":"显示在地址栏")
@@ -468,7 +475,7 @@ if(!douban_radio){
 					$('dbr_mi_artistmode').hidden = true
 					$('dbr_mi_myalbum').hidden = true
 					$('dbr_mi_favc').hidden = true
-					$('dbr_m_channel2').hidden = true
+					//$('dbr_m_channel2').hidden = true
 				}
 				if(radio.getRID()==0){
 					$('dbr_mi_albummode').setAttribute('label', "收听: " + radio.getCrtAlbum())

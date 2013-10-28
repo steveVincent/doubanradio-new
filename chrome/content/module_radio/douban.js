@@ -17,6 +17,7 @@ DBRUtil.DoubanMoudle = function (){
     for each(var v in lovedPlayList) lovedPlayList2.push(v);
     
     this.checkChannelUpdate = function(fn){
+    	/*
 		DBRUtil.sendXHR('http://douban.fm/radio',null,function(txt){
 			// 匹配页面里的变量，有变更就结束
 			var rslt = txt.match(/channels: \'.*\'/);
@@ -30,6 +31,8 @@ DBRUtil.DoubanMoudle = function (){
 				channel2['C'+channel.channel_id]=channel.name
 				channel3['C'+channel.channel_id]=channel.name	
 			}
+			//steve disable channel updating
+			
 			
 			// 与现有数据做比对 ：1、新增的 （n-o） 2、取消的 （o-n）3名字变更的
 			for (var sid in channelInfo){
@@ -53,14 +56,19 @@ DBRUtil.DoubanMoudle = function (){
 				DBRUtil.alert(DBRUtil.GSC('newchannel',[channel2[cid]]),10000)
 				channelInfo[cid] = channel2[cid]
 			}
-			
-			// 用新的频道数据直接替换旧的
-		channel3={"C162":"杰德+S进化论","C161":"奥迪A1—嗨,+party","C159":"朗境·闪念的声音","C157":"新BMW+316i","C150":"奥迪C大调新经典","C149":"MIIX+混得出色","C147":"幻彩新声","C145":"“砖”属音乐","C144":"新CC共听优雅","C141":"浮游生活","C110":"The+Beetle+Fender","C106":"东航官网","C83":"308选择出色MHz","C78":"91.1+MHz","C77":"Easy+MHz","C76":"小清新MHz","C61":"新歌MHz","C32":"咖啡馆MHz","C28":"动漫MHz","C27":"古典MHz","C22":"法语MHz","C20":"女声MHz","C18":"韩语MHz","C17":"日语MHz","C16":"R&B+MHz","C15":"说唱MHz","C14":"电子MHz","C13":"爵士MHz","C10":"原声MHz","C9":"轻音乐MHz","C8":"民谣MHz","C7":"摇滚MHz","C6":"粤语MHz","C5":"九零MHz","C4":"八零MHz","C3":"七零MHz","C2":"欧美MHz","C1":"华语MHz","C0":"私人兆赫","C9":"轻音乐"};
 			DBRUtil.setPref('channel_douban',JSON.stringify(channel3))
 			//TODO 更新UI
 			fn()
 			
+			// 用新的频道数据直接替换旧的
+		
+			
 		})
+		*/
+		channel3={"C78":"91.1+MHz","C77":"Easy+MHz","C76":"小清新MHz","C61":"新歌MHz","C32":"咖啡馆MHz","C28":"动漫MHz","C27":"古典MHz","C22":"法语MHz","C20":"女声MHz","C18":"韩语MHz","C17":"日语MHz","C16":"R&B+MHz","C15":"说唱MHz","C14":"电子MHz","C13":"爵士MHz","C10":"原声MHz","C9":"轻音乐MHz","C8":"民谣MHz","C7":"摇滚MHz","C6":"粤语MHz","C5":"九零MHz","C4":"八零MHz","C3":"七零MHz","C2":"欧美MHz","C1":"华语MHz","C0":"私人兆赫","C9":"轻音乐","C-3":"红心频道"};
+			DBRUtil.setPref('channel_douban',JSON.stringify(channel3))
+			//TODO 更新UI
+			fn()
     }
 
     this.clearTmpData = function(){}
