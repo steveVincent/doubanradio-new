@@ -13,6 +13,7 @@ DBRUtil.DoubanMoudle = function (){
     var favName ="红心频道"
     this.ico = 'douban.png'
     var favList ;
+    var preSongInfo;
     
     for each(var v in lovedPlayList) lovedPlayList2.push(v);
     
@@ -126,6 +127,7 @@ DBRUtil.DoubanMoudle = function (){
     
     function genAdjustableLink(t,cid,h,args){
         var content = []
+        //Steve address change for channel. from=mainsite may also work.
         content.push('type='+t+'&from=radio')
         content.push('sid='+songInfo.sid)
         var history =''
@@ -174,7 +176,7 @@ DBRUtil.DoubanMoudle = function (){
     }
     
     // 对应频道链接
-    //Steve address change for channel
+    //Steve address change for channel. from=mainsite may also work.
     this.getPlayListUrl = function(cid,flg){
 		var addition = aamode?('&'+aamode.type+aamode.id):""
         return 'http://douban.fm/j/mine/playlist?type=n&from=radio&channel=' + cid + (flg?"":addition)
@@ -285,6 +287,11 @@ DBRUtil.DoubanMoudle = function (){
     // 截取音乐ID
     this.getMusicId = function(url,songs){
         var mp3id = url.match(/p\d*/g)[1].replace('p', '')
+      //  if(!songInfo) {
+        	
+        	preSongInfo=songInfo;
+        //	alert(preSongInfo);
+     //   }
         songInfo = songs[mp3id]
         if(!songInfo) throw "list over"
         if(mylist.length == 0 && songInfo.like=='1')cloneData(songInfo)
@@ -374,9 +381,13 @@ DBRUtil.DoubanMoudle = function (){
     this.getRadioName = function getRadioName(){
         return "豆瓣电台"
     }
-    
-    this.shamReplayDataProcessor =  function(t){
+    //重播
+    this.shamReplayDataProcessor =  function(t,againflg){
          var i = JSON.stringify(songInfo)
+         if(againflg==2) 
+        	 {i = JSON.stringify(preSongInfo);
+        	// alert(preSongInfo);
+        	 }
          var idx = t.indexOf('[{'), idx2 = t.indexOf('}')
          t = t.substring(0, idx + 1) + i + t.substring(idx2 + 1)
         return t

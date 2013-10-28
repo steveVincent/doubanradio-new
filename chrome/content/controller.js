@@ -184,6 +184,8 @@ if(!douban_radio){
 		douban_radio.hate = isCanExecute(hateIt)
 		douban_radio.delay = rl.delay
 		douban_radio.replay = isCanExecute(radio.playAgain)
+		douban_radio.replay2 = isCanExecute(radio.playAgain2)
+		
 		douban_radio.viewSongInfo = viewSongInfo
 		douban_radio.playSong=radio.customizeRedList
 		douban_radio.suspend = radio.suspend
@@ -277,6 +279,7 @@ if(!douban_radio){
         var ps = ce('popupset', 'main-window');
         var p = ce('menupopup', ps, {id: 'radio_popup'}, {popupshowing: menuProcessor,command:menuClickProcessor})
 		ce('menuitem', p, {id: 'dbr_mi_open', key:'dbr_key_open'}, {command: douban_radio.open})
+		ce('menuitem', p, {id: 'dbr_mi_replay2'}, {command: douban_radio.replay2})
         ce('menuitem', p, {id: 'dbr_mi_replay'}, {command: douban_radio.replay})
         // 频道
 		ce('menu', p, {id:'dbr_m_channel'}, {command: douban_radio.changeChannel})
@@ -455,6 +458,10 @@ if(!douban_radio){
 		if (status == radio.STATUS_PLAY) {
 				$('dbr_mi_replay').setAttribute('disabled', radio.getSongName() == "");
 				$('dbr_mi_replay').setAttribute('label', radio.getSongName() == "" ? "重播歌曲" : "重播 : " + radio.getSongName());
+				
+				$('dbr_mi_replay2').setAttribute('disabled', radio.getSongName() == "");
+				$('dbr_mi_replay2').setAttribute('label',"重播倒数第一首" );
+				
 				$('dbr_mi_mp3path').setAttribute('tooltiptext', getPref('mp3path'));
 				$('dbr_mi_mp3path').setAttribute('disabled', getPref('mp3path') == "");
 				//Steve 

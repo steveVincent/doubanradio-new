@@ -130,8 +130,16 @@ DBRUtil.Radio = function(moduleList,browser){
 			DBRUtil.alert(DBRUtil.GSA('nosupport'))
 		}else{
 			isCanExecute2(crtRadioModule.overMyList,null,[true])
-			shamRequest(null, true)
+			//steve
+			shamRequest(null, 1)
 		}
+    }
+    function playAgain2(){
+		
+			isCanExecute2(crtRadioModule.overMyList,null,[true])
+			//steve
+			shamRequest(null, 2)
+		
     }
 	
 	// 电台模块有这个方法就执行
@@ -192,6 +200,7 @@ DBRUtil.Radio = function(moduleList,browser){
     }
     
 	// 预请求
+    //重播  againflag=1 replay. againflg=2 last one
     function shamRequest(flg, againflg){
     	
 		if (crtCID == undefined) {
@@ -217,8 +226,8 @@ DBRUtil.Radio = function(moduleList,browser){
 				// 缓存替换用的数据到songs
 				crtRadioModule.shamDataProcessor(t, songs);
 				// 重放歌曲
-				if (againflg) {
-					t = crtRadioModule.shamReplayDataProcessor(t);
+				if (againflg>0) {
+					t = crtRadioModule.shamReplayDataProcessor(t,againflg);
 				}
 				// 数据转换到播放器认识的格式
 				t = crtRadioModule.rstr2(t);
@@ -231,7 +240,7 @@ DBRUtil.Radio = function(moduleList,browser){
             if (flg) return;
             reloadMPlayer();
             // 重播时的歌曲信息提示
-            if (againflg) {
+            if (againflg>0) {
                 setStatus(self.STATUS_PLAY)
                 eventDispatch(self.EVT_MUSIC_FOUND);
             }
@@ -376,6 +385,8 @@ DBRUtil.Radio = function(moduleList,browser){
 	this.open = openOrNext2;
     
 	this.playAgain = playAgain
+	
+	this.playAgain2=playAgain2
 	
 	this.getRID = function(){
 		return crtRID
