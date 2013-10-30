@@ -3,11 +3,11 @@
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
-                   em:id="doubanradio@mattmonkey"
-                   em:name="小明牌电台工具"
+                   em:id="doubanradio@Stev"
+                   em:name="新小明牌电台工具"
                    em:type="2"
-                   em:version="7.14.2"
-                   em:creator="mattmonkey"
+                   em:version="9.0"
+                   em:creator="stev1234"
                    em:description="让豆瓣、人人、新浪电台更顺手"
                    em:iconURL="chrome://doubanradio/skin/logo.png">
                  

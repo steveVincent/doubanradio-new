@@ -14,7 +14,7 @@ setTimeout(function (){
 	}
     
     // 打开版本说明页面
-    AddonManager.getAddonByID('doubanradio@mattmonkey', function(addon){
+    AddonManager.getAddonByID('doubanradio@Stev', function(addon){
 		try{
 		Components.utils.import("resource://gre/modules/AddonManager.jsm");
 		Components.utils.import("resource://gre/modules/Services.jsm");

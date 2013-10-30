@@ -460,7 +460,7 @@ if(!douban_radio){
 				$('dbr_mi_replay').setAttribute('label', radio.getSongName() == "" ? "重播歌曲" : "重播 : " + radio.getSongName());
 				
 				$('dbr_mi_replay2').setAttribute('disabled', radio.getSongName() == "");
-				$('dbr_mi_replay2').setAttribute('label',"重播倒数第一首" );
+				$('dbr_mi_replay2').setAttribute('label',"重播上一首" );
 				
 				$('dbr_mi_mp3path').setAttribute('tooltiptext', getPref('mp3path'));
 				$('dbr_mi_mp3path').setAttribute('disabled', getPref('mp3path') == "");

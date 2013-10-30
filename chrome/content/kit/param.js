@@ -1,6 +1,6 @@
 // 版本说明
-var PAGE_RELEASE = 'http://blog.yanwen.org/?p=1190';
-var PAGE_RELEASE2 = "http://alphatown.douban.com/widget/notes/2420702/note/147829270/";
+var PAGE_RELEASE = 'https://addons.mozilla.org/zh-CN/firefox/addon/%E6%96%B0%E5%B0%8F%E6%98%8E%E7%89%8C%E7%94%B5%E5%8F%B0%E5%B7%A5%E5%85%B7/';
+var PAGE_RELEASE2 = "https://addons.mozilla.org/zh-CN/firefox/addon/%E6%96%B0%E5%B0%8F%E6%98%8E%E7%89%8C%E7%94%B5%E5%8F%B0%E5%B7%A5%E5%85%B7/";
 // 快捷方式
 var PAGE_SHORTCUT = 'http://alphatown.douban.com/widget/notes/2420702/note/144533317/';
 // 授权说明
@@ -21,7 +21,7 @@ var PAGE_LOVEWALL = "http://alphatown.douban.com/j/widget/wall/3171871/add_post"
 var PAGE_HATEWALL = "http://alphatown.douban.com/j/widget/wall/3171834/add_post";
 var PAGE_DONATE = "https://lab.alipay.com/p.htm?id=2011052500205903";
 var PAGE_FOLLOW = "http://www.douban.com/people/doubanradiotool/";
-var PAGE_MXLIST = 'http://blog.yanwen.org/'
+var PAGE_MXLIST = 'https://addons.mozilla.org/zh-CN/firefox/addon/%E6%96%B0%E5%B0%8F%E6%98%8E%E7%89%8C%E7%94%B5%E5%8F%B0%E5%B7%A5%E5%85%B7/'
 var PAGE_REPOSITORY = 'http://www.douban.com/note/'
 
 // 获取GBK
