@@ -8,7 +8,7 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<stringbundleset>
 		<stringbundle id="dbr_stringbundle" src="chrome://doubanradio/locale/overlay.properties"/>
 	</stringbundleset>	
-	
+<!-- 	
 	<window id="main-window">
 		<keyset>
 			<key id='dbr_key_open' key="[" command = 'dbr_cmd_open'/>
@@ -27,7 +27,7 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 			<command id='dbr_cmd_download' oncommand='douban_radio.download()'/>
 		</commandset>
 	</window>
-	
+-->		
 	<statusbar id="status-bar">
 		<statusbarpanel id='dbr_sbp_container'>
 			<label hidden='true'/>
