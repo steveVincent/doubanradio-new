@@ -658,6 +658,7 @@ if(!douban_radio){
 	
    // 喜欢
     function loveIt(e,flg){
+    	/*
 		// 按ctrl，发送分享		
 		if(e && e.ctrlKey){
 			sendShareInfo()
@@ -666,10 +667,12 @@ if(!douban_radio){
 		if(e && e.altKey){
 			// 不让界面卡住
 			setTimeout(saveFile,100)
-		}		
+		}	
+		
 		if(radio.isLoved() && e && (e.altKey || e.ctrlKey)){
 			return 
 		}
+		*/	
 		// 设置喜欢数据
 		radio.love(!radio.isLoved())
 		// 调整界面

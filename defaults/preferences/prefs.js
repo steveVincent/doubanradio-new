@@ -1,7 +1,7 @@
 pref("extensions.doubanradio.lovestring",'正在{radio}听{artist}《{album}》专辑的《{title}》。{mp3url}');
 pref("extensions.doubanradio.shareservice", 'sina');
 pref("extensions.doubanradio.filter", true);
-pref("extensions.doubanradio.debug", false);
+pref("extensions.doubanradio.debug", true);
 pref("extensions.doubanradio.share", true);
 pref("extensions.doubanradio.autoshowinfo", true);
 pref("extensions.doubanradio.mp3path", "");

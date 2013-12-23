@@ -390,6 +390,9 @@ DBRUtil.DoubanMoudle = function (){
         	 }
          var idx = t.indexOf('[{'), idx2 = t.indexOf('}')
          t = t.substring(0, idx + 1) + i + t.substring(idx2 + 1)
+         
+        
+         
         return t
     }
     

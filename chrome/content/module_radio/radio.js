@@ -156,6 +156,7 @@ DBRUtil.Radio = function(moduleList,browser){
         addObserver();
         setStatus(self.STATUS_BUSY)
 		shamRequest()
+		
     }
 	
 	function openOrNext2(){
@@ -169,6 +170,8 @@ DBRUtil.Radio = function(moduleList,browser){
 				shamDataProcessor(txt, true)
 				reloadMPlayer();
 			})
+			 var timeS=Math.round(new Date().getTime() / 1000); //per seconds
+			DBRUtil.logFile(" skip "+timeS);
 		}
 		else {
 			openOrNext()
@@ -244,6 +247,8 @@ DBRUtil.Radio = function(moduleList,browser){
                 setStatus(self.STATUS_PLAY)
                 eventDispatch(self.EVT_MUSIC_FOUND);
             }
+            
+           
 	}
     
     // 过滤广告
@@ -374,6 +379,10 @@ DBRUtil.Radio = function(moduleList,browser){
 				}
 				setStatus(self.STATUS_PLAY)
 				eventDispatch(self.EVT_MUSIC_FOUND);
+				
+				 var timeS=Math.round(new Date().getTime() / 1000); //per minuets
+		            
+		            DBRUtil.logFile("\n"+this.mp3id+" "+timeS);
 			}
 		}	
 	}

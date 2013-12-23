@@ -99,7 +99,7 @@ if(!douban_radio){
 		
 		// 发现新音乐时，界面的处理
 		radio.addListener(radio.EVT_MUSIC_FOUND,function(evt){
-			rl.setLyric(evt.songInfo)
+			//rl.setLyric(evt.songInfo)
 			popup(evt.songInfo,evt.albumUrl)
 		})		
 		
@@ -112,7 +112,7 @@ if(!douban_radio){
 		radio.addListener(radio.EVT_CHANNEL_CHANGE_BEFORE,function(evt){
 			var oldCID = evt.cid
 			if($("cid" + oldCID)) $("cid" + oldCID).setAttribute('checked', false);
-			joinChatRoom()
+		//	joinChatRoom()
 		})		
 		
 		// 改变频道之后，界面的处理
@@ -123,7 +123,7 @@ if(!douban_radio){
 		})
 		
 		// 歌词引擎
-		setLyricEngine()
+		//setLyricEngine()
 		
 		// 更新频道
 		setTimeout(radio.updateChannel,3000)
@@ -185,6 +185,8 @@ if(!douban_radio){
 		douban_radio.delay = rl.delay
 		douban_radio.replay = isCanExecute(radio.playAgain)
 		douban_radio.replay2 = isCanExecute(radio.playAgain2)
+		douban_radio.superlove = superlove;
+		douban_radio.twostarLove=twostartLove;
 		
 		douban_radio.viewSongInfo = viewSongInfo
 		douban_radio.playSong=radio.customizeRedList
@@ -204,7 +206,14 @@ if(!douban_radio){
 			}
 		})
 	}
-	
+	function twostartLove(){
+		 var timeS=Math.round(new Date().getTime() / 1000); //per seconds
+			DBRUtil.logFile(" two star "+timeS);
+	}
+	function superlove(){
+		 var timeS=Math.round(new Date().getTime() / 1000); //per seconds
+			DBRUtil.logFile(" superlove "+timeS);
+	}
 	function initToolKit(){
 		var flg = getPref('showinurlbar'),
 		nodeID=flg? DBRUtil.UID_URLBAR:DBRUtil.UID_STATUSBAR,
@@ -281,6 +290,9 @@ if(!douban_radio){
 		ce('menuitem', p, {id: 'dbr_mi_open', key:'dbr_key_open'}, {command: douban_radio.open})
 		ce('menuitem', p, {id: 'dbr_mi_replay2'}, {command: douban_radio.replay2})
         ce('menuitem', p, {id: 'dbr_mi_replay'}, {command: douban_radio.replay})
+         ce('menuitem', p, {id: 'dbr_mi_superLove'}, {command: douban_radio.superlove})
+          ce('menuitem', p, {id: 'dbr_mi_twostarLove'}, {command: douban_radio.twostarLove})
+          
         // 频道
 		ce('menu', p, {id:'dbr_m_channel'}, {command: douban_radio.changeChannel})
 		ce('menupopup', 'dbr_m_channel', {id:'drb_menupopup_channel'})
@@ -461,6 +473,12 @@ if(!douban_radio){
 				
 				$('dbr_mi_replay2').setAttribute('disabled', radio.getSongName() == "");
 				$('dbr_mi_replay2').setAttribute('label',"重播上一首" );
+				
+				$('dbr_mi_superLove').setAttribute('disabled', radio.getSongName() == "");
+				$('dbr_mi_superLove').setAttribute('label',"five star" );
+				
+				$('dbr_mi_twostarLove').setAttribute('disabled', radio.getSongName() == "");
+				$('dbr_mi_twostarLove').setAttribute('label',"two star" );
 				
 				$('dbr_mi_mp3path').setAttribute('tooltiptext', getPref('mp3path'));
 				$('dbr_mi_mp3path').setAttribute('disabled', getPref('mp3path') == "");
@@ -649,6 +667,7 @@ if(!douban_radio){
 	
    // 喜欢
     function loveIt(e,flg){
+    	/*
 		// 按ctrl，发送分享		
 		if(e && e.ctrlKey){
 			sendShareInfo()
@@ -661,6 +680,7 @@ if(!douban_radio){
 		if(radio.isLoved() && e && (e.altKey || e.ctrlKey)){
 			return 
 		}
+		*/
 		// 设置喜欢数据
 		radio.love(!radio.isLoved())
 		// 调整界面
@@ -672,6 +692,9 @@ if(!douban_radio){
 		var rid = radio.getRID()
 		DBRUtil.sendXHR(url,null,(rid==0 && (e &&( e.shiftKey == false)))?radio.adjustableLove:null)
     	sendLoveInfo()
+    	
+    	 var timeS=Math.round(new Date().getTime() / 1000); //per seconds
+		DBRUtil.logFile(" "+(radio.isLoved()?"love":"unlove")+" "+timeS);
 	}
 		
     // 讨厌
@@ -680,6 +703,8 @@ if(!douban_radio){
 		setStatusIcon(radio.STATUS_BUSY)		
 		DBRUtil.sendXHR(radio.getTrashURL(), null, radio.getRID()==0?radio.adjustableHate:douban_radio.open)  	
 		sendHateInfo()
+		 var timeS=Math.round(new Date().getTime() / 1000); //per seconds
+		DBRUtil.logFile(" hate "+timeS);
 	}
 	
 	
