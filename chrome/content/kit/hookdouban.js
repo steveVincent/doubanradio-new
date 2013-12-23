@@ -16,6 +16,8 @@
 			evtName:"DoubanPlayEvent",
 			attrs:['pid','name','ptype']
 		},
+		/*
+		 * 404 留言墙
 		'play':{
 			check:null,
 			scope:['http://alphatown.douban.com/117738',
@@ -25,6 +27,7 @@
 			evtName:"DoubanWallPlayEvent",
 			attrs:['sid','ssid']		
 		},
+		*/
 		'search':{
 			check:null,
 			scope:['http://music.douban.com/subject_search'],

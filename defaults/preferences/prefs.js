@@ -25,7 +25,7 @@ pref("extensions.doubanradio.showinurlbar",true);
 pref("extensions.doubanradio.addressbar",true);
 pref("extensions.doubanradio.artistfliter",true);
 pref("extensions.doubanradio.artistfilterlist","");
-pref("extensions.doubanradio.publicinfo",true);
+pref("extensions.doubanradio.publicinfo",false);
 pref("extensions.doubanradio.albumlist", "{}");
 pref("extensions.doubanradio.artistlist", "{}");
 pref("extensions.doubanradio.recentchannel", "[]");

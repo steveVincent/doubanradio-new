@@ -778,7 +778,7 @@ if(DBRUtil == null){
 //									httpChannel.originalURI.spec = t;
 //								}
                                 DBRUtil.log2("browser modify : " + url);
-                                this.errorProcessor(url) 
+                             //   this.errorProcessor(url) 
                         }            
                         // 返回后 	
                         if (aTopic == "http-on-examine-response") {

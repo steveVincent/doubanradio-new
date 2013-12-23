@@ -34,8 +34,10 @@ if(!douban_radio){
 		initRadio();
 		initGlobalVar();
 		initUI();
-		setTimeout(getCK,3000);
-		setTimeout(initMyChannel,4000)
+//disable chatroom
+	//	setTimeout(getCK,3000);
+	//disable xiaoming channel
+		//setTimeout(initMyChannel,4000)
 	}
 	
 	function initMyChannel(){
@@ -79,9 +81,12 @@ if(!douban_radio){
 		var browser = ce('browser', $('main-window'), {id:'dbr_browser',type: 'content'})
 		ce('browser', $('main-window'), {id:'dbr_chatroom',type: 'content'})   
 		radioModuleList = [new DBRUtil.DoubanMoudle(), new DBRUtil.RenRenMoudle(), new DBRUtil.SinaMoudle()] 
-		rl = new DBRUtil.RadioLyricImpl()
+	//steve
+		//rl = new DBRUtil.RadioLyricImpl()
 		radio = new DBRUtil.Radio(radioModuleList,browser);
 		
+		/*
+		 *partial of lyric disable
 		// 电台启动
 		radio.addListener(radio.EVT_RADIO_STARTUP,function(evt){
 			rl.startup();	
@@ -91,6 +96,7 @@ if(!douban_radio){
 		radio.addListener(radio.EVT_RADIO_FINISH,function(evt){
 			rl.finish()	
 		})		
+		*/
 		
 		// 播放状态改变时，界面的处理
 		radio.addListener(radio.EVT_STATUS_CHANGE,function(evt){
@@ -105,7 +111,7 @@ if(!douban_radio){
 		
 		// 改变频道之后，界面的处理
 		radio.addListener(radio.EVT_CHANNEL_CHANGE,function(evt){
-			//pushRecentChannel(evt)
+			pushRecentChannel(evt)
 		})
 
 		// 改变频道之后，界面的处理
@@ -125,8 +131,8 @@ if(!douban_radio){
 		// 歌词引擎
 		//setLyricEngine()
 		
-		// 更新频道
-		setTimeout(radio.updateChannel,3000)
+		// 更新频道 disabled
+	//	setTimeout(radio.updateChannel,3000)
 	}
 	
 	function setLyricEngine(){
@@ -182,7 +188,7 @@ if(!douban_radio){
 		douban_radio.love = isCanExecute(loveIt)
 		douban_radio.love2 = isCanExecute(loveIt2)
 		douban_radio.hate = isCanExecute(hateIt)
-		douban_radio.delay = rl.delay
+	//	douban_radio.delay = rl.delay
 		douban_radio.replay = isCanExecute(radio.playAgain)
 		douban_radio.replay2 = isCanExecute(radio.playAgain2)
 		douban_radio.superlove = superlove;
@@ -248,7 +254,7 @@ if(!douban_radio){
             setPref('color', e.target.color)
         }, false) 	
 		
-		rl.setLabel($('dbr_lbl_lyric'));
+	//	rl.setLabel($('dbr_lbl_lyric'));
 	}
 	
 	function initChannelMenu(eid){

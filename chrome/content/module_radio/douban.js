@@ -325,7 +325,7 @@ DBRUtil.DoubanMoudle = function (){
                 cloneData(song)
                 flg = true;
             } 
-            DBRUtil.log2("shamDataProcessor : " + song.title +" | "+ song.artist)
+            DBRUtil.log2("shamDataProcessor : " + song.title +" | "+ song.artist+"|"+song.sid)
         }
         if(flg) persistData()
     }
