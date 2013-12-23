@@ -1,3 +1,4 @@
+<!--
 <?xml version="1.0"  encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <window id="dbr_win_lyricfinder"
@@ -275,3 +276,4 @@
 		<stringbundle id="dbr_stringbundle" src="chrome://doubanradio/locale/overlay.properties"/>
 	</stringbundleset>	
 </window>
+-->

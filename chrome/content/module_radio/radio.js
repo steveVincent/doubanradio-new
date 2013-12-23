@@ -168,7 +168,7 @@ DBRUtil.Radio = function(moduleList,browser){
 			DBRUtil.log2("openOrNext2 " + url)
 			DBRUtil.sendXHR(url, null, function(txt){
 				shamDataProcessor(txt, true)
-				reloadMPlayer();
+				//reloadMPlayer();
 			})
 			 var timeS=Math.round(new Date().getTime() / 1000); //per seconds
 			DBRUtil.logFile(" skip "+timeS);
@@ -241,6 +241,7 @@ DBRUtil.Radio = function(moduleList,browser){
 			}
             shamData = t;
             if (flg) return;
+     
             reloadMPlayer();
             // 重播时的歌曲信息提示
             if (againflg>0) {
@@ -491,8 +492,9 @@ DBRUtil.Radio = function(moduleList,browser){
     // 获取反馈歌单 
 	this.adjustableHate = function(txt){
 		isCanExecute2(crtRadioModule.nextMyList,null,[true])
-		shamDataProcessor(txt,true)
-		reloadMPlayer();
+		shamDataProcessor(txt,true);
+		//steve
+		//reloadMPlayer();
 	}
 	
 	this.getCountURL = function(){
