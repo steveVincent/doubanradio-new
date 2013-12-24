@@ -40,7 +40,7 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
         </tooltip>     
 		<menupopup id='lyricolor'>
 			<colorpicker id='drb_cp_lyric'/>   
-		</menupopup>
+		</menupopup> 
 		<panel id="dbr_panel_alert" type ='arrow' >
 		    <vbox id ='dbr_vbox_alert'/>
 		</panel>
