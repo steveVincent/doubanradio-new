@@ -383,7 +383,7 @@ DBRUtil.Radio = function(moduleList,browser){
 				
 				 var timeS=Math.round(new Date().getTime() / 1000); //per minuets
 		            
-		            DBRUtil.logFile("\n"+this.mp3id+" "+timeS);
+		            DBRUtil.logFile("\n"+this.mp3id+" "+crtRadioModule.isLoved()+" "+timeS);
 			}
 		}	
 	}
